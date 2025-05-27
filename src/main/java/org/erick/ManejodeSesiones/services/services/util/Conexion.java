@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Conexion {
 
     //Inicializo 3 variables globales
-    private static String url="jdbc:mysql://localhost:3307/restaurante?serverTimezone=UTC";
+    private static String url="jdbc:mysql://localhost:3306/restaurante?serverTimezone=UTC";
 
     //nombre del usuario de la BBDD
     private static String username="root";
