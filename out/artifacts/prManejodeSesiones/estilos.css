@@ -1,120 +1,129 @@
-/* ===========================
-   ESTILOS GLOBALES - MODO OSCURO
-=========================== */
+/* ===========================================
+   ESTILOS GLOBALES - CONFIGURACIÓN GENERAL
+   =========================================== */
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;  /* fondo oscuro principal */
-    margin: 0;
-    padding: 0;
-    color: #e0e0e0;  /* texto gris claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna, legible */
+    background-color: #121212;  /* Fondo general oscuro (modo oscuro) */
+    margin: 0;                 /* Elimina espacio exterior predeterminado */
+    padding: 0;                /* Elimina espacio interior predeterminado */
+    color: #e0e0e0;            /* Texto en gris claro para buen contraste */
 }
+
+/* ===========================================
+   TÍTULOS PRINCIPALES
+   =========================================== */
 
 h1 {
-    text-align: center;
-    margin-top: 30px;
-    color: #90caf9; /* azul claro */
+    text-align: center;        /* Centrar el título */
+    margin-top: 30px;          /* Separación superior */
+    color: #90caf9;            /* Color azul claro (resalta en fondo oscuro) */
 }
 
-/* ===========================
-   MENÚ DE NAVEGACIÓN
-=========================== */
+/* ===========================================
+   MENÚ DE NAVEGACIÓN (barra superior)
+   =========================================== */
 
 .menu {
-    list-style: none;
-    padding: 0;
-    margin: 30px auto;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    background-color: #1e1e1e; /* gris oscuro */
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    max-width: 600px;
+    list-style: none;          /* Elimina viñetas predeterminadas */
+    padding: 0;                /* Quita el relleno interno */
+    margin: 30px auto;         /* Centra horizontalmente y agrega separación superior */
+    display: flex;             /* Usa Flexbox para organizar horizontalmente */
+    justify-content: center;   /* Centra los elementos del menú */
+    gap: 20px;                 /* Espaciado entre enlaces */
+    background-color: #1e1e1e; /* Fondo gris oscuro para el menú */
+    border-radius: 10px;       /* Bordes redondeados suaves */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6); /* Sombra sutil para profundidad */
+    max-width: 600px;          /* Limita el ancho máximo del menú */
 }
 
 .menu li a {
-    display: block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #90caf9;  /* azul claro */
-    font-weight: 600;
-    border-radius: 8px;
-    transition: background 0.3s ease, color 0.3s ease;
+    display: block;            /* Hace que todo el enlace sea clickeable */
+    padding: 12px 20px;        /* Espaciado interno del enlace */
+    text-decoration: none;     /* Quita el subrayado */
+    color: #90caf9;            /* Color del texto (azul claro) */
+    font-weight: 600;          /* Letra en negrita media */
+    border-radius: 8px;        /* Bordes suavizados */
+    transition: background 0.3s ease, color 0.3s ease; /* Transición suave en hover */
 }
 
 .menu li a:hover {
-    background-color: #37474f; /* azul grisáceo al pasar el mouse */
-    color: #ffffff;
+    background-color: #37474f; /* Color de fondo al pasar el mouse (azul grisáceo) */
+    color: #ffffff;            /* Texto blanco al pasar el mouse */
 }
 
-/* ===========================
-   FORMULARIO DE LOGIN
-=========================== */
+/* ===========================================
+   FORMULARIO DE LOGIN - CONTENEDOR
+   =========================================== */
 
 .login-container {
-    width: 360px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    width: 360px;                /* Ancho del formulario */
+    margin: 50px auto;           /* Centrado con margen vertical */
+    padding: 30px;               /* Relleno interno */
+    background: #1e1e1e;         /* Fondo oscuro del formulario */
+    border-radius: 12px;         /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7); /* Sombra pronunciada */
 }
 
+/* ===========================================
+   FORMULARIO DE LOGIN - CAMPOS Y BOTÓN
+   =========================================== */
+
 .login-container form {
-    display: flex;
-    flex-direction: column;
+    display: flex;              /* Usa flexbox */
+    flex-direction: column;     /* Apila verticalmente */
 }
 
 .login-container label {
-    margin-top: 15px;
-    font-size: 15px;
-    color: #bbdefb;  /* azul claro */
+    margin-top: 15px;           /* Espaciado superior entre campos */
+    font-size: 15px;            /* Tamaño de letra estándar */
+    color: #bbdefb;             /* Azul claro para destacar las etiquetas */
 }
 
 .login-container input[type="text"],
 .login-container input[type="password"] {
-    padding: 10px;
-    margin-top: 6px;
-    border: 1px solid #546e7a;  /* borde gris-azulado */
-    border-radius: 6px;
-    font-size: 14px;
-    background-color: #263238;  /* fondo campo input */
-    color: #ffffff;
-    outline: none;
+    padding: 10px;              /* Relleno interno */
+    margin-top: 6px;            /* Espacio entre etiqueta e input */
+    border: 1px solid #546e7a;  /* Borde gris-azulado */
+    border-radius: 6px;         /* Bordes redondeados */
+    font-size: 14px;            /* Tamaño de texto */
+    background-color: #263238;  /* Fondo de campo más oscuro */
+    color: #ffffff;             /* Texto blanco dentro del input */
+    outline: none;              /* Quitar contorno por defecto al enfocar */
 }
 
 .login-container input[type="submit"] {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #1565c0; /* azul medio */
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    margin-top: 20px;           /* Separación superior del botón */
+    padding: 12px;              /* Espaciado interno del botón */
+    background-color: #1565c0;  /* Azul medio (color de acción) */
+    color: white;               /* Texto blanco */
+    border: none;               /* Sin borde por defecto */
+    border-radius: 6px;         /* Bordes redondeados */
+    font-weight: bold;          /* Letra en negrita */
+    cursor: pointer;            /* Cambia el cursor al pasar el mouse */
+    transition: background 0.3s ease; /* Transición suave */
 }
 
 .login-container input[type="submit"]:hover {
-    background-color: #0d47a1; /* azul más oscuro al pasar mouse */
+    background-color: #0d47a1;  /* Azul más oscuro al pasar el mouse */
 }
 
-/* ===========================
-   RESPONSIVE (opcional)
-=========================== */
+/* ===========================================
+   RESPONSIVE DESIGN (Diseño adaptable)
+   =========================================== */
+
 @media (max-width: 480px) {
     .login-container {
-        width: 90%;
+        width: 90%;            /* Más ancho en pantallas pequeñas */
     }
 
     .menu {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column;  /* Apila enlaces verticalmente */
+        align-items: center;     /* Centra los ítems */
     }
 
     .menu li {
-        width: 100%;
-        text-align: center;
+        width: 100%;             /* Ancho completo por enlace */
+        text-align: center;      /* Centra el texto */
     }
 }
