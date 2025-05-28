@@ -109,9 +109,6 @@
         <th>Acciones</th>
     </tr>
     <%
-        // Ejemplo con datos fijos. Si tienes conexión a BD, reemplaza por tu consulta y bucle.
-        // Connection conn = ...; Statement stmt = ...; ResultSet rs = stmt.executeQuery("SELECT * FROM categoria");
-        // while(rs.next()) { ... }
         String[][] categorias = {{"1", ""}, {"2", ""}, {"3", ""}};
         for(int i=0; i<categorias.length; i++) {
     %>
