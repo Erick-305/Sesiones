@@ -13,7 +13,7 @@ public class Conexion {
     private static String username="root";
 
     //contraseña de la base de datos
-    private static String password="Erick2005.";
+    private static String password="";
 
     //implementamos un metodo para realizar la conexion
     public static Connection getConnection() throws SQLException {

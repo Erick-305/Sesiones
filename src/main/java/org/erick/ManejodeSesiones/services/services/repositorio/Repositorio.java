@@ -1,5 +1,7 @@
 package org.erick.ManejodeSesiones.services.services.repositorio;
 
+import org.erick.ManejodeSesiones.services.services.models.Categoria;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -11,6 +13,8 @@ public interface Repositorio <T>{
     List<T> listar() throws SQLException;
 
     T porId(Long id) throws SQLException;
+
+    Categoria porId(int id) throws SQLException;
 
     void guardar (T t) throws SQLException;
 

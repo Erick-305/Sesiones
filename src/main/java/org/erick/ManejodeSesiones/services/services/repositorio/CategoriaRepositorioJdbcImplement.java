@@ -28,6 +28,11 @@ public class CategoriaRepositorioJdbcImplement implements Repositorio<Categoria>
     }
 
     @Override
+    public Categoria porId(Long id) throws SQLException {
+        return null;
+    }
+
+    @Override
     public Categoria porId(int id) throws SQLException {
         //Crea un objeto de tipo categoria null
         Categoria categoria = null;
