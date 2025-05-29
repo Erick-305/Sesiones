@@ -1,21 +1,30 @@
 package org.erick.ManejodeSesiones.services.services.models;
 
 public class Categoria {
-    //Implementar e inicializar las variables de objeto
+    //implementar e inicializar las variables de un objeto
     //encapsulados
-    private int idCategoria;
+    private Long idCategoria;
     private String nombre;
     private String descripcion;
     private int condicion;
-    public Categoria(){
+    public Categoria() {
+
     }
-    public Categoria(int idCategoria, String nombre, String descripcion, int condicion) {
+    public Categoria(Long idCategoria, String nombre, String descripcion, int condicion) {
         this.idCategoria = idCategoria;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.condicion = condicion;
     }
-    //Implementmos los metodos get and set
+//Implementamos los metodos get and set
+
+    public Long getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
+    }
 
     public String getNombre() {
         return nombre;
@@ -23,14 +32,6 @@ public class Categoria {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
     }
 
     public String getDescripcion() {

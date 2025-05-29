@@ -14,9 +14,7 @@ public interface Repositorio <T>{
 
     T porId(Long id) throws SQLException;
 
-    Categoria porId(int id) throws SQLException;
-
     void guardar (T t) throws SQLException;
 
-    void eliminar (int id) throws SQLException;
+    void eliminar(Long id) throws SQLException;
 }

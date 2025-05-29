@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
 <body>
 <div class="login-container">

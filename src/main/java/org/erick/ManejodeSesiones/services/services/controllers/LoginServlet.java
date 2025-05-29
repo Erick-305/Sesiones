@@ -38,7 +38,9 @@ public class LoginServlet extends HttpServlet {
                 out.println("<html>");
                 out.println("<head>");
                 out.println("<meta charset=\"utf-8\">");  // Especificar encoding
-                out.println("<title>hola usuario "+ usernameOptional.get() +"</title>");  // Título de la pestaña
+                out.println("<title>hola usuario "+ usernameOptional.get() +"</title>");
+
+                // Título de la pestaña
                 out.println("</head>");
                 out.println("<body>");
                 // Mostrar mensaje personalizado con el nombre de usuario

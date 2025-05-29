@@ -47,6 +47,7 @@ public class ProductoServlet extends HttpServlet {
         out.println("<head>");
         out.println("<meta charset=\"utf-8\">");  // Especificar encoding
         out.println("<title>Lista de Productos</title>");  // Título de la pestaña
+        out.println("<link href=\"" + req.getContextPath()+ "/bootstrap.min.css\" rel=\"stylesheet\">");
         out.println("</head>");
         out.println("<body>");
 

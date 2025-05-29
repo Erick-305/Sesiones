@@ -11,6 +11,7 @@ import org.erick.ManejodeSesiones.services.services.services.LoginService;
 import org.erick.ManejodeSesiones.services.services.services.LoginServiceSessionImplement;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Optional;
 
 @WebServlet("/logout")
@@ -24,6 +25,13 @@ public class Logout  extends HttpServlet {
             HttpSession session = req.getSession();
             //cerramnos ls session
             session.invalidate();
+        }
+        try (PrintWriter out = resp.getWriter()) {
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta charset=\"utf-8\">");
+            out.println("link href=\"bootstrap.min.css\" rel=\"stylesheet\">");
+            out.println("</head>");
         }
         resp.sendRedirect(req.getContextPath()+ "/login.html");
     }
