@@ -41,4 +41,14 @@ public class CategoriaServiceJdbcImplement implements CategoriaService {
     public void guardar(Categoria categoria) {
 
     }
+
+    @Override
+    public void activar(Long id) {
+
+    }
+
+    @Override
+    public void desactivar(Long id) {
+
+    }
 }

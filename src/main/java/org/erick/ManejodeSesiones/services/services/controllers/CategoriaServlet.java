@@ -21,65 +21,77 @@ public class CategoriaServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Creamos la conexion
         Connection conn = (Connection) req.getAttribute("conn");
-        //Creamos el nuevo objeto de Categoria
         CategoriaService service = new CategoriaServiceJdbcImplement(conn);
-        Long id;
-        //Validamos que el campo ingresado sea un numero
+        LoginService auth = new LoginServiceSessionImplement();
+        Optional<String> usernameOptional = auth.getUserName(req);
+
+        String accion = req.getParameter("accion");
+        Long id = 0L;
+
         try {
-            //En la variable id guardamos lo que estamos mapeando por el metodo get id Categoria
-            id = Long.parseLong(req.getParameter("idCategoria"));
-        } catch (NumberFormatException e) {
-            id = 0L;
-            //Creamos un objeto Categoria vacio
-            Categoria categorias = new Categoria();
-            //Verificamos si el id >0
-            if (id > 0) {
-                //Creamos una variable de tipo optional para obtener la categoria por id
-                Optional<Categoria> optionalCategoria = service.porId(id);
-                //Si la variable optional esta presente obtenemos todos los valores
-                if (optionalCategoria.isPresent()) {
-                    categorias = optionalCategoria.get();
-                }
+            id = Long.parseLong(req.getParameter("id"));
+        } catch (NumberFormatException ignored) {}
+
+        try {
+            if ("editar".equalsIgnoreCase(accion) && id > 0) {
+                // Reenvía al servlet CategoriaForm para manejar la edición
+                req.getRequestDispatcher("/categoria/form?idCategoria=" + id).forward(req, resp);
+                return; // Importante: salir del método después de un forward
+            } else if ("activar".equalsIgnoreCase(accion) && id > 0) {
+                // *** CAMBIO CLAVE AQUÍ: Reenviar al servlet CategoriaForm para manejar la activación en un formulario ***
+                // Pasa el ID y la acción para que el formulario sepa qué hacer
+                req.getRequestDispatcher("/categoria/form?accion=activar&idCategoria=" + id).forward(req, resp);
+                return; // Importante: salir del método después de un forward
+            } else if ("desactivar".equalsIgnoreCase(accion) && id > 0) {
+                // Desactivar sigue siendo una acción directa con redirección
+                service.desactivar(id);
+                resp.sendRedirect(req.getContextPath() + "/categoria");
+                return; // Importante: salir del método después de una redirección
             }
-            //Seteamos los atributos en el alcance de request
-            req.setAttribute("categorias", categorias);
-            getServletContext().getRequestDispatcher("/formularioCategoria.jsp").forward(req, resp);
-            List<Categoria> categorias1 = service.Listar();
 
-            //Obtengo el username
-            LoginService auth = new LoginServiceSessionImplement();
-            Optional<String> username = auth.getUserName(req);
-
-            //Seteamos los parametros
+            // Si no se realizó una acción de editar, activar o desactivar,
+            // entonces se muestra el listado normal.
+            List<Categoria> categorias = service.Listar();
             req.setAttribute("categorias", categorias);
+
+            String username = usernameOptional.orElse("");
             req.setAttribute("username", username);
-            //redireccionames a la vista de categoria
-            getServletContext().getRequestDispatcher("/categoriaListar.jsp").forward(req, resp);
+
+            req.getRequestDispatcher("/categoriaListar.jsp").forward(req, resp);
+
+        } catch (Exception e) {
+            throw new ServletException("Error en la acción de categoría", e);
         }
     }
-        //Sobrescribimos el metodo Post
-        @Override
-        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            Connection conn = (Connection) req.getAttribute("conn");
-            CategoriaService service = new CategoriaServiceJdbcImplement(conn);
-            String nombre = req.getParameter("nombre");
-            String descripcion = req.getParameter("descripcion");
-            //Obtenemos el idCategoria
-            Long idCategoria;
-            try{
-                idCategoria = Long.parseLong(req.getParameter("idCategoria"));
-            }catch(NumberFormatException e){
-                idCategoria = 0L;
-            }
-            Categoria categoria = new Categoria();
-            categoria.setIdCategoria(idCategoria);
-            categoria.setNombre(nombre);
-            categoria.setDescripcion(descripcion);
-            service.guardar(categoria);
-            //Redireccionamos al listado para no nos ejecute el motodo doPost
-            resp.sendRedirect(req.getContextPath()+"/categoria");
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Connection conn = (Connection) req.getAttribute("conn");
+        CategoriaService service = new CategoriaServiceJdbcImplement(conn);
+
+        String nombre = req.getParameter("nombre");
+        String descripcion = req.getParameter("descripcion");
+
+        Long idCategoria;
+        try {
+            idCategoria = Long.parseLong(req.getParameter("idCategoria"));
+        } catch (NumberFormatException e) {
+            idCategoria = 0L;
         }
+
+        Categoria categoria = new Categoria();
+        categoria.setIdCategoria(idCategoria);
+        categoria.setNombre(nombre);
+        categoria.setDescripcion(descripcion);
+
+        try {
+            service.guardar(categoria);
+        } catch (Exception e) {
+            throw new ServletException("Error al guardar la categoría", e);
+        }
+
+        // Redireccionar a la lista para evitar reposteo (POST-Redirect-GET)
+        resp.sendRedirect(req.getContextPath() + "/categoria");
+    }
 }

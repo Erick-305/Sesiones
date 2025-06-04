@@ -11,5 +11,9 @@ public interface CategoriaService {
     Optional<Categoria> porId(Long id);
 
     void guardar(Categoria categoria);
+
+    void activar(Long id);
+
+    void desactivar(Long id);
     //implementar metodos guardar,activar y desactivar
 }

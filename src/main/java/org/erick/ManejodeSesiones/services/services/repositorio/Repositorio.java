@@ -1,7 +1,5 @@
 package org.erick.ManejodeSesiones.services.services.repositorio;
 
-import org.erick.ManejodeSesiones.services.services.models.Categoria;
-
 import java.sql.SQLException;
 import java.util.List;
 

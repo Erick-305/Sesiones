@@ -86,4 +86,7 @@ public class CategoriaRepositorioJdbcImplement implements Repositorio<Categoria>
         c.setIdCategoria(rs.getLong("idCategoria"));
         return c;
     }
+
+    public void actualizar(Categoria categoria) {
+    }
 }
