@@ -14,6 +14,7 @@
 <html>
 <head>
     <title>Reactivar Artículo</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
 <body>
 <h1>Artículos Desactivados</h1>
