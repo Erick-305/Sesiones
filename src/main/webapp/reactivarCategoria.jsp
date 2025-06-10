@@ -14,9 +14,11 @@
 <html>
 <head>
     <title>Reactivar Categoría</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
 <body>
 <h1>Categorías Desactivadas</h1>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 <table>
     <tr>
         <th>ID</th><th>Nombre</th><th>Descripción</th><th>Acción</th>

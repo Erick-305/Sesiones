@@ -15,6 +15,7 @@
 <html>
 <head>
     <title>Formulario Artículo</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
 <body>
 <h1>Formulario Artículo</h1>
