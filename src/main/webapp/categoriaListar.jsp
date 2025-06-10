@@ -11,7 +11,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"
          import="java.util.*, org.erick.ManejodeSesiones.services.*" %>
-<%@ page import="org.erick.ManejodeSesiones.services.services.models.Categoria" %>
+<%@ page import="org.erick.ManejodeSesiones.models.Categoria" %>
 <%
     // Obtiene la lista de categorías del atributo de la solicitud (request)
     List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
@@ -21,6 +21,7 @@
 <html>
 <head>
     <title>Listado Categoria</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 <body>
 <%-- Muestra un mensaje de bienvenida si el nombre de usuario no es nulo y no está vacío --%>
